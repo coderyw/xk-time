@@ -1143,7 +1143,7 @@ public class TimeNLP {
             Pattern nightPattern = RegexEnum.NormHourNight.getPattern();
             Matcher nightMatch = nightPattern.matcher(timeExpression);
             if (afternoonMatch.find() || nightMatch.find()) {
-                if (curTime < (timeContext.getTunit()[3] + 12)) {
+                if (curTime <= (timeContext.getTunit()[3] + 12)) {
                     return;
                 }
             }else if(curTime<=timeContext.getTunit()[3]) {
@@ -1153,7 +1153,7 @@ public class TimeNLP {
                 return;
             }
         } else {
-            if (curTime < timeContext.getTunit()[checkTimeIndex]) {
+            if (curTime <= timeContext.getTunit()[checkTimeIndex]) {
                 return;
             }
         }
