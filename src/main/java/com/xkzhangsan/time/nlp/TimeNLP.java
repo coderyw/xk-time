@@ -1148,6 +1148,9 @@ public class TimeNLP {
                 }
             }else if(curTime<=timeContext.getTunit()[3]) {
                 return;
+            }else if(curTime<=timeContext.getTunit()[3]+12){
+                timeContext.getTunit()[3]+=+12;
+                return;
             }
         } else {
             if (curTime < timeContext.getTunit()[checkTimeIndex]) {

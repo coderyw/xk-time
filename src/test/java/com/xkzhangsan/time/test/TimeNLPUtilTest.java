@@ -2,11 +2,13 @@ package com.xkzhangsan.time.test;
 
 import com.xkzhangsan.time.calculator.DateTimeCalculatorUtil;
 import com.xkzhangsan.time.formatter.DateTimeFormatterUtil;
+import com.xkzhangsan.time.nlp.TextAnalysis;
 import com.xkzhangsan.time.nlp.TimeNLP;
 import com.xkzhangsan.time.nlp.TimeNLPUtil;
 import com.xkzhangsan.time.utils.CollectionUtil;
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -16,6 +18,42 @@ import java.util.concurrent.*;
  * @author xkzhangsan
  */
 public class TimeNLPUtilTest {
+
+
+    @Test
+    public void SeTest() {
+        String[] waitList = new String[]{
+                "下周五晚上六点",
+                "明天",
+                "下个月一号",
+                "大年初一早上九点",
+                "明天上午10点11分",
+                "5月20号",
+                "2023年5月20号",
+                "2五分钟后",
+                "2024年一月12号",
+                "五点",
+                "十七点",
+                "七点",
+                "11点58",
+                "12点10分",
+                "13点12分",
+                "三点十分",
+                "上午0点一分"
+        };
+//        Calendar calendar = Calendar.getInstance();
+//        System.out.println(calendar.get(Calendar.YEAR));
+        for (String j : waitList) {
+//            System.out.println(TextAnalysis.getInstance().analysis(j));
+            List<TimeNLP> list = TimeNLPUtil.parse(j);
+
+            System.out.println("--------------");
+            list.forEach(i -> {
+                System.out.println(i);
+            });
+        }
+
+    }
 
     /**
      * 常见实例
